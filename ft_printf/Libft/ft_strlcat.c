@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:58:42 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 18:07:11 by mschaub          ###   ########.fr       */
+/*   Created: 2022/11/30 18:01:30 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/11 14:49:16 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_b(t_list **stack_a, t_list **stack_b)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	
-}
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	i;
 
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{
-	int		i;
-	t_list	*tmp;
-	
-	while (ft_lstsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	i = size;
+	while (*dst)
 	{
-		tmp = *stack_a;
-		i = ft_rotate_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			
-		}
+		dst++;
+		if (i > 0)
+			i--;
 	}
-	
-	
-
+	while (*src && i > 1)
+	{
+		*dst++ = *src++;
+		i--;
+	}
+	*dst = '\0';
+	if (size > len_dst)
+		return (len_dst + len_src);
+	return (size + len_src);
 }

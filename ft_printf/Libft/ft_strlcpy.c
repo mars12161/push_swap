@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:58:42 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 18:07:11 by mschaub          ###   ########.fr       */
+/*   Created: 2022/06/30 16:44:22 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/06 19:02:46 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_b(t_list **stack_a, t_list **stack_b)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	
-}
+	size_t	i;
 
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{
-	int		i;
-	t_list	*tmp;
-	
-	while (ft_lstsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	i = 0;
+	if (size == 0)
 	{
-		tmp = *stack_a;
-		i = ft_rotate_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			
-		}
+		while (src[i])
+			i++;
+		return (i);
 	}
-	
-	
-
+	while (i < (size -1) && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (i < size)
+		dest[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }

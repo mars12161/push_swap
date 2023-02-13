@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:58:42 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 18:07:11 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/03 15:25:34 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/03 16:52:22 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_b(t_list **stack_a, t_list **stack_b)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	
-}
+	char	*ret;
+	size_t	i;
+	size_t	j;
 
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{
-	int		i;
-	t_list	*tmp;
-	
-	while (ft_lstsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	i = 0;
+	j = 0;
+	ret = (char *)malloc(
+			sizeof(*s1) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!ret)
+		return (NULL);
+	while (s1[i])
 	{
-		tmp = *stack_a;
-		i = ft_rotate_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			
-		}
+		ret[j++] = s1[i];
+		i++;
+	}	
+	i = 0;
+	while (s2[i])
+	{
+		ret[j++] = s2[i];
+		i++;
 	}
-	
-	
-
+	ret[j] = 0;
+	return (ret);
 }

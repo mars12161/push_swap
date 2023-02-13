@@ -6,7 +6,7 @@
 #    By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 14:31:34 by mschaub           #+#    #+#              #
-#    Updated: 2023/01/27 16:57:46 by mschaub          ###   ########.fr        #
+#    Updated: 2022/12/20 15:25:14 by mschaub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,18 +35,18 @@ all: $(NAME)
 
 
 $(NAME): 	$(OBJS)
-	@make -C ./Libft
-	@cp ./Libft/libft.a $(NAME)
-	@$(CC) $(CFLAGS) Libft/ft_printf.h $(SRC)
-	@ar -rcs $(NAME) $^
+	make -C ./Libft
+	cp ./Libft/libft.a $(NAME)
+	$(CC) $(CFLAGS) Libft/ft_printf.h $(SRC)
+	ar -rcs $(NAME) $^
 
 clean:
-	@make clean -C ./Libft
-	@$(RM) $(OBJS)
+	make clean -C ./Libft
+	$(RM) $(OBJS)
 
 fclean: clean
-	@make fclean -C ./Libft
-	@$(RM) $(NAME)
+	make fclean -C ./Libft
+	$(RM) $(NAME)
 
 re: fclean all
 

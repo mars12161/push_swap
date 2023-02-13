@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 16:09:48 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 14:13:18 by mschaub          ###   ########.fr       */
+/*   Updated: 2023/02/13 17:59:26 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,13 @@ void		check_int_max(t_list **stack);
 int			ft_error(t_list **stack_a);
 int			get_digits(long a);
 int			ft_find_index(t_list **stack, int nbr);
+int			case_ra_rb(t_list *stack_a, *stack_b, int a);
+int			case_rra_rrb(t_list *stack_a, *stack_b, int a);
+int			case_rra_rb(t_list *stack_a, *stack_b, int a);
+int			case_ra_rrb(t_list *stack_a, *stack_b, int a);
+int			case_ra_rb_a(t_list *stack_a, *stack_b, int a);
+int			case_rra_rrb_a(t_list *stack_a, *stack_b, int a);
+int			case_rra_rb_a(t_list *stack_a, *stack_b, int a);
+int			case_ra_rrb_a(t_list *stack_a, *stack_b, int a);
 
 #endif

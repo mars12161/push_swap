@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:58:42 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 18:07:11 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/05 12:26:14 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/05 14:46:40 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_b(t_list **stack_a, t_list **stack_b)
+void	ft_putnbr_fd(int n, int fd)
 {
-	
-}
+	int		sign;
+	char	c;
 
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{
-	int		i;
-	t_list	*tmp;
-	
-	while (ft_lstsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	sign = 1;
+	if (n < 0)
 	{
-		tmp = *stack_a;
-		i = ft_rotate_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			
-		}
+		ft_putchar_fd('-', fd);
+		sign = -1;
 	}
-	
-	
-
+	if (n / 10)
+	{
+		ft_putnbr_fd(n / 10 * sign, fd);
+	}
+	c = n % 10 * sign + '0';
+	ft_putchar_fd(c, fd);
 }

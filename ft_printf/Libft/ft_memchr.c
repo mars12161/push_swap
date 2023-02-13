@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 15:58:42 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 18:07:11 by mschaub          ###   ########.fr       */
+/*   Created: 2022/12/02 16:28:14 by mschaub           #+#    #+#             */
+/*   Updated: 2022/12/11 14:48:36 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_b(t_list **stack_a, t_list **stack_b)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	
-}
-
-void	ft_sort_big(t_list **stack_a, t_list **stack_b)
-{
-	int		i;
-	t_list	*tmp;
-	
-	while (ft_lstsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	while (n--)
 	{
-		tmp = *stack_a;
-		i = ft_rotate_ab(*stack_a, *stack_b);
-		while (i >= 0)
-		{
-			
-		}
+		if (*(unsigned char *)s == (unsigned char)c)
+			return ((void *)s);
+		s++;
 	}
-	
-	
-
+	return (NULL);
 }

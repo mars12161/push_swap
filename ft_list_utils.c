@@ -6,7 +6,7 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:25:18 by mschaub           #+#    #+#             */
-/*   Updated: 2023/02/13 15:27:26 by mschaub          ###   ########.fr       */
+/*   Updated: 2023/02/13 17:11:20 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void adapt_indices(t_list **stack)
 	t_list *current;
 	int i;
 
-	i = 1;
+	i = 0;
 	current = *stack;
 	while (current->next != *stack)
 	{
@@ -180,7 +180,7 @@ t_list	*ft_last(t_list *stack)
 
 	current = stack;
 	if (!stack)
-		return ;
+		return (NULL);
 	while (current->next != stack)
 		current = current->next;
 	return (current);
@@ -201,7 +201,7 @@ int	ft_place_in_b(t_list **stack_b, int number)
 		current = (*stack_b)->next;
 		while ((*stack_b)->content < number || current->content > number)
 		{
-			stack_b = (*stack_b)->next;
+			stack_b = &(*stack_b)->next;
 			current = current->next;
 			i++;
 		}
@@ -224,10 +224,11 @@ int	ft_place_in_a(t_list **stack_a, int number)
 		current = (*stack_a)->next;
 		while ((*stack_a)->content > number || current->content < number)
 		{
-			stack_a = (*stack_a)->next;
+			stack_a = &(*stack_a)->next;
 			current = current->next;
 			i++;
 		}
 	}
 	return (i);
 }
+

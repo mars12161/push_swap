@@ -6,11 +6,12 @@
 /*   By: mschaub <mschaub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:56:52 by mschaub           #+#    #+#             */
-/*   Updated: 2023/01/18 17:41:47 by mschaub          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:25:26 by mschaub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	ft_hexlen(unsigned long long num)
 {
@@ -65,7 +66,7 @@ void	ft_writehex(unsigned long long num, const char format)
 
 	quotient = num;
 	i = 0;
-	hex = malloc(sizeof(char) * (ft_hexlen(num) + 1));
+	hex = ft_calloc(sizeof(char), (ft_hexlen(num) + 1));
 	if (!hex)
 		return ;
 	while (quotient != 0)
@@ -80,7 +81,6 @@ void	ft_writehex(unsigned long long num, const char format)
 			hex[i++] = (remainder - 10) + 'A';
 	}
 	ft_revstr(hex);
-	hex[i] = '\0';
 	printitout(hex);
 	free(hex);
 }
@@ -99,10 +99,10 @@ int	ft_printhex(unsigned long long num, const char format)
 	return (ft_hexlen(num));
 }
 
-/* 
+/*  
 int	main(void)
 {
 	unsigned int i = 255;
-	ft_printhexout(i, 'X');
+	ft_printhex(i, 'X');
 	return 0;
 } */
